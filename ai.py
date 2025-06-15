@@ -1,10 +1,13 @@
 from openai import OpenAI
+import os
+from dotenv import load_dotenv  # You might need to: pip install python-dotenv
 
+load_dotenv()  # This loads your .env file
 def promptLLM(question, contextInfo):
+    key=os.getenv("OPENROUTER_API_KEY")  # Ensure you have your API key in .env file
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="sk-or-v1-190d9ebd7a3c4d956bb091b5f" \
-                "28ae480b9b568758cd3b5203cebf5a4d5b6e300",
+        api_key=key,
     )
 
     completion = client.chat.completions.create(
