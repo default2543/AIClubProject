@@ -2,7 +2,8 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv  # You might need to: pip install python-dotenv
 
-load_dotenv()  # This loads your .env file
+load_dotenv()  
+
 def promptLLM(question, contextInfo):
     key=os.getenv("OPENROUTER_API_KEY")  # Ensure you have your API key in .env file
     client = OpenAI(
