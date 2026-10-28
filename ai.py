@@ -1,10 +1,11 @@
+import os
+
 from openai import OpenAI
 
 def promptLLM(question, contextInfo):
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="sk-or-v1-190d9ebd7a3c4d956bb091b5f" \
-                "28ae480b9b568758cd3b5203cebf5a4d5b6e300",
+        api_key=os.environ["OPENROUTER_API_KEY"],
     )
 
     completion = client.chat.completions.create(
